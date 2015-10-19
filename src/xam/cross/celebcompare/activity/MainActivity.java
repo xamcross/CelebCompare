@@ -3,6 +3,7 @@ package xam.cross.celebcompare.activity;
 import xam.cross.celebcompare.entity.Celebrity;
 import xam.cross.celebcompare.service.DBHelper;
 import xam.cross.celebcompare.service.MainService;
+import xam.cross.celebcompare.utility.CompareAge;
 import xam.cross.celebcompare.utility.CompareWealth;
 import android.app.Activity;
 import android.database.sqlite.SQLiteDatabase;
@@ -41,15 +42,15 @@ public class MainActivity extends Activity {
 			Celebrity stallone = (Celebrity)celebrities[1];
 			tvCelebLeft.setText(depp.getName());
 			tvCelebRight.setText(stallone.getName());
-			int result = MainService.compareCelebs(new CompareWealth(), depp, stallone);
+			int result = MainService.compareCelebs(new CompareAge(), depp, stallone);
 			if (result > 0){
-				tvResult.setText(depp.getName() + " is wealthier than " + stallone.getName());	
+				tvResult.setText(depp.getName() + " is younger than " + stallone.getName());	
 			}
 			else if (result < 0){
-				tvResult.setText(stallone.getName() + " is wealthier than " + depp.getName());
+				tvResult.setText(stallone.getName() + " is younger than " + depp.getName());
 			}
 			else {
-				tvResult.setText(depp.getName() + " and " + stallone.getName() + " have equal wealth");
+				tvResult.setText(depp.getName() + " and " + stallone.getName() + " are of the same age");
 			}
 		}
 	}

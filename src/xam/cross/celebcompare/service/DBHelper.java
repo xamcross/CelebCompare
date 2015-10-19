@@ -1,5 +1,7 @@
 package xam.cross.celebcompare.service;
 
+import java.sql.Date;
+
 import xam.cross.celebcompare.entity.Celebrity;
 import android.content.Context;
 import android.database.Cursor;
@@ -17,7 +19,7 @@ public class DBHelper extends SQLiteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		db.execSQL("create table celebrities (id integer primary key autoincrement, "
-				+ "name text, age integer, numChildren integer, numSpouses integer, wealth real, height real);");
+				+ "name text not null, age text not null, numChildren integer, numSpouses integer, wealth real not null, height real not null);");
 	}
 
 	@Override
@@ -41,7 +43,7 @@ public class DBHelper extends SQLiteOpenHelper {
 			
 			do {
 				String name = cursor.getString(idNameIndex);
-				int age = cursor.getInt(idAgeIndex);
+				Date age = Date.valueOf(cursor.getString(idAgeIndex));
 				int numberChildren = cursor.getInt(idNumChildrenIndex);
 				int numberSpouses = cursor.getInt(idNumSpousesIndex);
 				double wealth = cursor.getDouble(idWealthIndex);

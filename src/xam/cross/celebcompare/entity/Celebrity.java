@@ -1,5 +1,6 @@
 package xam.cross.celebcompare.entity;
 
+import java.sql.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -7,7 +8,7 @@ public class Celebrity {
 
 	private static Set<Celebrity> celebrities = new HashSet<Celebrity>();
 
-	public Celebrity(String name, int age, int numberChildren,
+	public Celebrity(String name, Date age, int numberChildren,
 			int numberSpouses, double wealth, double height) {
 		this.name = name;
 		this.age = age;
@@ -19,7 +20,7 @@ public class Celebrity {
 	}
 
 	private String name;
-	private int age;
+	private Date age;
 	private int numberChildren;
 	private int numberSpouses;
 	private double wealthMillions;
@@ -45,7 +46,7 @@ public class Celebrity {
 	}
 
 	public static Set<Celebrity> getTwoRandomCelebs() {
-		int multiplier = celebrities.size() + 1;
+		int multiplier = celebrities.size();
 		Set<Celebrity> celebsToCompare = new HashSet<Celebrity>();
 		int celebOneIndex = (int) (Math.random() * multiplier);
 		int celebTwoIndex = (int) (Math.random() * multiplier);
@@ -70,11 +71,11 @@ public class Celebrity {
 		this.name = name;
 	}
 
-	public int getAge() {
+	public Date getAge() {
 		return age;
 	}
 
-	public void setAge(int age) {
+	public void setAge(Date age) {
 		this.age = age;
 	}
 
