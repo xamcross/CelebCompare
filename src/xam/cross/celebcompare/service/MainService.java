@@ -6,8 +6,8 @@ import xam.cross.celebcompare.utility.CompareCelebrity;
 public class MainService {
 
 	public static int compareCelebs(CompareCelebrity compareCelebrity,
-			Celebrity depp, Celebrity stalone) {
-		return compareCelebrity.compare(depp, stalone);
+			Celebrity depp, Celebrity stallone) {
+		return compareCelebrity.compare(depp, stallone);
 	}
 	
 }

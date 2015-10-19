@@ -1,10 +1,9 @@
 package xam.cross.celebcompare.activity;
 
-import static xam.cross.celebcompare.service.MainService.compareCelebs;
 import xam.cross.celebcompare.entity.Celebrity;
 import xam.cross.celebcompare.service.DBHelper;
-import xam.cross.celebcompare.utility.CompareAge;
-import xam.cross.celebcompare.utility.CompareNumberChildren;
+import xam.cross.celebcompare.service.MainService;
+import xam.cross.celebcompare.utility.CompareWealth;
 import android.app.Activity;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -14,16 +13,45 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
+	TextView tvCelebLeft;
+	TextView tvCelebRight;
+	TextView tvCelebParam;
+	TextView tvResult;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+		tvCelebLeft = (TextView) findViewById(R.id.tvCelebLeft);
+		tvCelebRight = (TextView) findViewById(R.id.tvCelebRight);
+		tvCelebParam = (TextView) findViewById(R.id.tvCelebParam);
+		tvResult = (TextView) findViewById(R.id.tvResult);
+		
+		tvCelebParam.setText("Wealth");
+		
 		DBHelper dbHelper = new DBHelper(this);
 		SQLiteDatabase db = dbHelper.getWritableDatabase();
 		
 		dbHelper.loadAllCelebrities(db);
-
+		
+		if (Celebrity.getCelebrities() != null){
+			Object[] celebrities = Celebrity.getTwoRandomCelebs().toArray();
+			Celebrity depp = (Celebrity)celebrities[0];
+			Celebrity stallone = (Celebrity)celebrities[1];
+			tvCelebLeft.setText(depp.getName());
+			tvCelebRight.setText(stallone.getName());
+			int result = MainService.compareCelebs(new CompareWealth(), depp, stallone);
+			if (result > 0){
+				tvResult.setText(depp.getName() + " is wealthier than " + stallone.getName());	
+			}
+			else if (result < 0){
+				tvResult.setText(stallone.getName() + " is wealthier than " + depp.getName());
+			}
+			else {
+				tvResult.setText(depp.getName() + " and " + stallone.getName() + " have equal wealth");
+			}
+		}
 	}
 
 	@Override

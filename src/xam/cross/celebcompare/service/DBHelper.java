@@ -1,9 +1,9 @@
 package xam.cross.celebcompare.service;
 
+import xam.cross.celebcompare.entity.Celebrity;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHelper extends SQLiteOpenHelper {
@@ -37,8 +37,17 @@ public class DBHelper extends SQLiteOpenHelper {
 			int idWealthIndex = cursor.getColumnIndex("wealth");
 			int idHeightIndex = cursor.getColumnIndex("height");
 			
+			Celebrity.clearCelebrities();
+			
 			do {
+				String name = cursor.getString(idNameIndex);
+				int age = cursor.getInt(idAgeIndex);
+				int numberChildren = cursor.getInt(idNumChildrenIndex);
+				int numberSpouses = cursor.getInt(idNumSpousesIndex);
+				double wealth = cursor.getDouble(idWealthIndex);
+				double height = cursor.getDouble(idHeightIndex);
 				
+				new Celebrity(name,age,numberChildren,numberSpouses,wealth,height);
 			}
 			while(cursor.moveToNext());
 		}
