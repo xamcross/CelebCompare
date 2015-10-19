@@ -2,9 +2,11 @@ package xam.cross.celebcompare.activity;
 
 import static xam.cross.celebcompare.service.MainService.compareCelebs;
 import xam.cross.celebcompare.entity.Celebrity;
+import xam.cross.celebcompare.service.DBHelper;
 import xam.cross.celebcompare.utility.CompareAge;
 import xam.cross.celebcompare.utility.CompareNumberChildren;
 import android.app.Activity;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,22 +18,11 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+		DBHelper dbHelper = new DBHelper(this);
+		SQLiteDatabase db = dbHelper.getWritableDatabase();
 		
-		Celebrity Depp = new Celebrity();
-		Celebrity Stalone = new Celebrity();
-
-		Depp.setAge(64);
-		Stalone.setAge(64);
-
-		Depp.setNumberChildren(2);
-		Stalone.setNumberChildren(0);
-
-		int resultAge = compareCelebs(new CompareAge(), Depp, Stalone);
-		int resultNumberChildren = compareCelebs(new CompareNumberChildren(), Depp, Stalone);
-
-		TextView tvHello = (TextView) findViewById(R.id.tvHello);
-		tvHello.setText("Result age compare = " + resultAge + "\n"
-				+ "Result children compare = " + resultNumberChildren);
+		dbHelper.loadAllCelebrities(db);
 
 	}
 
