@@ -1,63 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000033"
-    android:id="@+id/rlMainMenu" >
+    android:id="@+id/flMainMenu" >
 
-    <FrameLayout 
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/flMainMenu">
-        
-    </FrameLayout>
-    
     <LinearLayout
         android:id="@+id/llButtonsMainMenu"
+        android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:alpha="1"
         android:orientation="vertical" >
 
         <Button
             android:id="@+id/btnNewGame"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:minHeight="64dp"
             android:layout_marginBottom="8dp"
-            android:textStyle="bold"
+            android:background="@android:drawable/btn_default"
+            android:minHeight="64dp"
+            android:text="New Game"
             android:textAllCaps="true"
-            android:text="New Game" />
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btnTutorial"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:minHeight="64dp"
             android:layout_marginBottom="8dp"
-            android:textStyle="bold"
+            android:background="@android:drawable/btn_default"
+            android:minHeight="64dp"
+            android:text="Tutorial"
             android:textAllCaps="true"
-            android:text="Tutorial" />
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btnAchievements"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:background="@android:drawable/btn_default"
             android:minHeight="64dp"
-            android:textStyle="bold"
+            android:text="Achievements"
             android:textAllCaps="true"
-            android:text="Achievements" />
+            android:textStyle="bold" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/ivLogo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/big_logo" />
-
-</RelativeLayout>
+</FrameLayout>

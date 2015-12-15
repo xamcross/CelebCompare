@@ -26,4 +26,5 @@ public class BackgroundAnimation{
 		fadeOutAnimator.setRepeatMode(Animation.RESTART);
 		return fadeOutAnimator;
 	}
+
 }

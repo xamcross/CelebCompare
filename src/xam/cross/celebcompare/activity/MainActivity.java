@@ -31,12 +31,12 @@ public class MainActivity extends Activity {
 		
 		tvCelebParam.setText("Wealth");
 		
-		DBHelper dbHelper = new DBHelper(this);
+		/*DBHelper dbHelper = new DBHelper(this);
 		SQLiteDatabase db = dbHelper.getWritableDatabase();
 		
 		dbHelper.loadAllCelebrities(db);
 		
-		if (Celebrity.getCelebrities() != null){
+		if (Celebrity.getTwoRandomCelebs() != null){
 			Object[] celebrities = Celebrity.getTwoRandomCelebs().toArray();
 			Celebrity depp = (Celebrity)celebrities[0];
 			Celebrity stallone = (Celebrity)celebrities[1];
@@ -52,7 +52,7 @@ public class MainActivity extends Activity {
 			else {
 				tvResult.setText(depp.getName() + " and " + stallone.getName() + " are of the same age");
 			}
-		}
+		}*/
 	}
 
 	@Override
@@ -66,7 +66,7 @@ public class MainActivity extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
+		// as you specify a parent context in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
 			return true;
