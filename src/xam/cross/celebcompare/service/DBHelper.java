@@ -28,9 +28,10 @@ public class DBHelper extends SQLiteOpenHelper {
 	}
 
 	public void loadAllCelebrities(SQLiteDatabase db) {
-		Cursor cursor = db.query("celebrities", null,null,null,null,null,null);
-		
-		if (cursor.moveToFirst()){
+		Cursor cursor = db.query("celebrities", null, null, null, null, null,
+				null);
+
+		if (cursor.moveToFirst()) {
 			int idColIndex = cursor.getColumnIndex("id");
 			int idNameIndex = cursor.getColumnIndex("name");
 			int idAgeIndex = cursor.getColumnIndex("age");
@@ -38,9 +39,9 @@ public class DBHelper extends SQLiteOpenHelper {
 			int idNumSpousesIndex = cursor.getColumnIndex("numSpouses");
 			int idWealthIndex = cursor.getColumnIndex("wealth");
 			int idHeightIndex = cursor.getColumnIndex("height");
-			
+
 			Celebrity.clearCelebrities();
-			
+
 			do {
 				String name = cursor.getString(idNameIndex);
 				Date age = Date.valueOf(cursor.getString(idAgeIndex));
@@ -48,10 +49,10 @@ public class DBHelper extends SQLiteOpenHelper {
 				int numberSpouses = cursor.getInt(idNumSpousesIndex);
 				double wealth = cursor.getDouble(idWealthIndex);
 				double height = cursor.getDouble(idHeightIndex);
-				
-				new Celebrity(name,age,numberChildren,numberSpouses,wealth,height);
-			}
-			while(cursor.moveToNext());
+
+				new Celebrity(name, age, numberChildren, numberSpouses, wealth,
+						height);
+			} while (cursor.moveToNext());
 		}
 	}
 
