@@ -10,6 +10,7 @@ import xam.cross.celebcompare.layout.BackgroundLayout;
 import xam.cross.celebcompare.onclicklistener.BackToMenuClickListener;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
@@ -69,13 +70,11 @@ public class AchievementsActivity extends Activity {
 
 	private void setListView() {
 
+		Resources resources = getResources();
+		
 		int imageId = R.drawable.quick_punch;
-		String titles[] = { "Travolta geek", "Shwarzenegger lover",
-				"Spacey worm" };
-		String descriptions[] = {
-				"You seem to know every aspect of Travolta life! Good for you!",
-				"You seem to know every aspect of Shwarzenegger life! Good for you!",
-				"You seem to know every aspect of Spacey life! Good for you!" };
+		String titles[] = resources.getStringArray(R.array.achievements_titles);
+		String descriptions[] = resources.getStringArray(R.array.achievements_descriptions);
 		boolean achieved = false;
 
 		List<Map<String, Object>> data = new ArrayList<Map<String, Object>>(titles.length);

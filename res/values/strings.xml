@@ -5,4 +5,15 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
+    <string-array name="achievements_titles">
+        <item>Travolta geek</item>
+        <item>Shwarzenegger lover</item>
+        <item>Spacey worm</item>
+    </string-array>
+    <string-array name="achievements_descriptions">
+        <item>You seem to know every aspect of Travolta life! Good for you!</item>
+        <item>You seem to know every aspect of Shwarzenegger life! Good for you!</item>
+        <item>You seem to know every aspect of Spacey life! Good for you!</item>
+    </string-array>
+    
 </resources>

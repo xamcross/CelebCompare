@@ -4,19 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import xam.cross.celebcompare.entity.Celebrity;
 import xam.cross.celebcompare.layout.BackgroundLayout;
 import xam.cross.celebcompare.onclicklistener.LeaveClickListener;
 import xam.cross.celebcompare.onseekbarchangelistener.LeaveSeekBarChangeListener;
 import xam.cross.celebcompare.service.DBHelper;
-import xam.cross.celebcompare.service.MainService;
-import xam.cross.celebcompare.utility.CompareAge;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -158,7 +154,7 @@ public class GameActivity extends Activity {
 		Intent callerIntent = getIntent();
 
 		String callerName = callerIntent.getStringExtra("caller");
-		Log.d("myLog", "Caller - " + callerName);
+		
 		if (callerName.equals("StartActivity")) {
 			timer = new CountDownTimer(7000, 1000) {
 

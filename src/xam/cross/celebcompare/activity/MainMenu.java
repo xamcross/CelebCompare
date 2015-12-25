@@ -75,7 +75,6 @@ public class MainMenu extends Activity {
 	@Override
 	public void onResume(){
 		super.onResume();
-		Log.d("myLog", "MainMenu onResume()");
 	}
 	
 }
